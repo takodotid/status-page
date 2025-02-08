@@ -1,26 +1,224 @@
 {
-  "name": "example-with-tailwindcss",
+  "name": "@takodotid/status-page",
+  "version": "2.0.0",
+  "description": "Status page for www.tako.id",
+  "license": "SEE LICENSE IN LICENSE",
+  "private": true,
+  "homepage": "https://tako.id",
+  "repository": "https://github.com/takodotid/status-page",
+  "bugs": "https://github.com/takodotid/status-page/issues",
   "type": "module",
   "scripts": {
+    "prepare": "husky",
     "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start"
+    "start": "vinxi start",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx"
+  },
+  "author": {
+    "name": "Tako Frontend Team",
+    "email": "team@tako.id",
+    "url": "https://tako.id"
+  },
+  "contributors": [
+    {
+      "name": "Rafly Maulana",
+      "email": "me@raflymaulana.me",
+      "url": "https://raflymaulana.me"
+    }
+  ],
+  "packageManager": "pnpm@9.15.1",
+  "engines": {
+    "node": ">=20.11.0",
+    "pnpm": ">=9.9.0"
+  },
+  "lint-staged": {
+    "./src/*.{js,jsx,ts,tsx}": "eslint --fix"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ],
+    "rules": {
+      "body-max-line-length": [
+        0
+      ]
+    }
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "endOfLine": "auto",
+    "htmlWhitespaceSensitivity": "css",
+    "bracketSameLine": false,
+    "jsxSingleQuote": false,
+    "printWidth": 200,
+    "semi": true,
+    "tabWidth": 4
+  },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "prettier",
+      "import",
+      "no-relative-import-paths",
+      "solid"
+    ],
+    "extends": [
+      "prettier",
+      "eslint:recommended",
+      "plugin:solid/recommended",
+      "plugin:import/recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:tailwindcss/recommended"
+    ],
+    "settings": {
+      "import/extensions": [
+        ".ts",
+        ".tsx"
+      ]
+    },
+    "rules": {
+      "@typescript-eslint/ban-types": "error",
+      "@typescript-eslint/no-extra-non-null-assertion": "error",
+      "@typescript-eslint/no-import-type-side-effects": "error",
+      "@typescript-eslint/consistent-indexed-object-style": [
+        "error",
+        "record"
+      ],
+      "@typescript-eslint/consistent-type-definitions": [
+        "error",
+        "type"
+      ],
+      "@typescript-eslint/consistent-type-imports": [
+        "error",
+        {
+          "prefer": "type-imports",
+          "disallowTypeAnnotations": true,
+          "fixStyle": "separate-type-imports"
+        }
+      ],
+      "@typescript-eslint/array-type": [
+        "error",
+        {
+          "default": "array"
+        }
+      ],
+      "tailwindcss/no-custom-classname": [
+        "error",
+        {
+          "cssFiles": [
+            "./src/**/*.css"
+          ],
+          "callees": [
+            "clsx",
+            "cx",
+            "class",
+            "mc"
+          ]
+        }
+      ],
+      "tailwindcss/no-arbitrary-value": [
+        "warn",
+        {
+          "callees": [
+            "classnames",
+            "clsx",
+            "ctl",
+            "cva",
+            "tv",
+            "mc",
+            "cn"
+          ]
+        }
+      ],
+      "no-multi-spaces": "error",
+      "no-empty-function": "off",
+      "prettier/prettier": "error",
+      "eqeqeq": [
+        "error",
+        "always"
+      ],
+      "no-case-declarations": "error",
+      "no-confusing-arrow": "error",
+      "no-else-return": "error",
+      "no-var": "error",
+      "object-shorthand": [
+        "error",
+        "always"
+      ],
+      "prefer-arrow-callback": "error",
+      "prefer-const": "error",
+      "prefer-template": "error",
+      "spaced-comment": [
+        "error",
+        "always"
+      ],
+      "yoda": "error",
+      "import/no-unresolved": "off",
+      "import/no-duplicates": "error",
+      "import/no-absolute-path": "error",
+      "import/no-namespace": "error",
+      "import/no-relative-parent-imports": "error",
+      "import/no-relative-packages": "error",
+      "import/first": "error",
+      "import/no-anonymous-default-export": "error",
+      "import/order": [
+        "error",
+        {
+          "newlines-between": "always",
+          "groups": [
+            "type",
+            "index",
+            "sibling",
+            "parent",
+            "internal",
+            "external",
+            "builtin",
+            "object"
+          ],
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": true
+          }
+        }
+      ]
+    }
   },
   "dependencies": {
-    "@solidjs/router": "^0.15.0",
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.15.3",
     "@solidjs/start": "^1.0.11",
-    "solid-js": "^1.9.2",
-    "vinxi": "^0.4.3"
+    "chart.js": "^4.4.7",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "solid-js": "^1.9.4",
+    "solid-sonner": "^0.2.8",
+    "tailwind-merge": "^2.6.0",
+    "vinxi": "^0.4.3",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.19",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.3"
-  },
-  "overrides": {
-    "vite": "5.4.10"
-  },
-  "engines": {
-    "node": ">=18"
+    "@commitlint/cli": "^19.7.1",
+    "@commitlint/config-conventional": "^19.7.1",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-no-relative-import-paths": "^1.6.1",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-solid": "^0.14.5",
+    "eslint-plugin-tailwindcss": "^3.18.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.4.3",
+    "postcss": "^8.5.1",
+    "prettier": "^3.4.2",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.14",
+    "vite-plugin-solid": "^2.11.1"
   }
 }

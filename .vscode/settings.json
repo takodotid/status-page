@@ -1,0 +1,16 @@
+{
+    "eslint.validate": ["html", "javascript", "typescript", "javascriptreact", "typescriptreact"],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "css.customData": [".vscode/css_custom_data.json"],
+    "editor.formatOnSave": true,
+    "typescript.tsdk": "node_modules\\typescript\\lib",
+    "files.eol": "\n",
+    "files.associations": {
+        "pre-commit": "shellscript",
+        "pre-push": "shellscript",
+        "commit-msg": "shellscript"
+    },
+    "editor.pasteAs.preferences": ["uri.path.absolute"]
+}

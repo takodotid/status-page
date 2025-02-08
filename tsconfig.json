@@ -1,19 +1,24 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "bundler",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "jsx": "preserve",
-    "jsxImportSource": "solid-js",
-    "allowJs": true,
-    "noEmit": true,
-    "strict": true,
-    "types": ["vinxi/types/client"],
-    "isolatedModules": true,
-    "paths": {
-      "~/*": ["./src/*"]
-    }
-  }
+    "compilerOptions": {
+        "baseUrl": ".",
+        "lib": ["DOM.AsyncIterable", "DOM.Iterable", "DOM", "ESNext"],
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "jsx": "preserve",
+        "jsxImportSource": "solid-js",
+        "allowJs": true,
+        "strict": true,
+        "noEmit": true,
+        "resolveJsonModule": true,
+        "types": ["vinxi/client", "vite/client", "@solidjs/start/env"],
+        "isolatedModules": true,
+        "paths": {
+            "@/*": ["src/*"]
+        }
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
 }

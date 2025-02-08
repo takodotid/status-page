@@ -1,20 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background-rgb: 214, 219, 220;
-  --foreground-rgb: 0, 0, 0;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-rgb: 0, 0, 0;
-    --foreground-rgb: 255, 255, 255;
-  }
+* {
+    @apply scroll-smooth;
 }
 
 body {
-  background: rgb(var(--background-rgb));
-  color: rgb(var(--foreground-rgb));
+    @apply selection:bg-blue-primary selection:text-white;
+}
+
+.bg-blue-primary {
+    @apply selection:bg-pink-primary;
+}
+
+/* ----------------------------------------------
+ * Custom scrollbar
+ * ---------------------------------------------- */
+
+/* width (for vertical) and height (for horizontal) */
+::-webkit-scrollbar {
+    height: 5px;
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    @apply bg-black/0;
+}
+
+body::-webkit-scrollbar-track {
+    @apply bg-black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    @apply bg-blue-primary/60 rounded-full;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-blue-primary;
+}
+
+.bg-blue-primary::-webkit-scrollbar-thumb {
+    @apply bg-black/60;
+}
+
+.bg-blue-primary::-webkit-scrollbar-thumb:hover {
+    @apply bg-black;
 }

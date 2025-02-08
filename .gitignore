@@ -1,11 +1,10 @@
-
 dist
 .solid
 .output
+.vinxi
 .vercel
 .netlify
-.vinxi
-app.config.timestamp_*.js
+netlify
 
 # Environment
 .env
@@ -27,3 +26,6 @@ gitignore
 # System Files
 .DS_Store
 Thumbs.db
+
+# vite
+vite.config.timestamp*
