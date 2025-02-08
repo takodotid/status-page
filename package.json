@@ -191,6 +191,7 @@
     "@solidjs/router": "^0.15.3",
     "@solidjs/start": "^1.0.11",
     "chart.js": "^4.4.7",
+    "chartjs-adapter-date-fns": "^3.0.0",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "solid-js": "^1.9.4",
